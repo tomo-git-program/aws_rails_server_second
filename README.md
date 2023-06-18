@@ -1,24 +1,117 @@
 # README
+real-worldの仕様に則った
+基本的なCRUDの機能を備えたAPIアプリケーションです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 事前準備
+```
+git clone https://github.com/tomo-git-program/real_world.git
+```
+を任意のカレントディレクトリで実行してください
 
-Things you may want to cover:
+次にプロジェクトを開き、ターミナルで
+```
+bundle install
+```
+を行ってください。
 
-* Ruby version
+また
+使用する前にpostmanで以下の動作確認をお願いします
 
-* System dependencies
+コンソールから
+```
+cd .\real_world\
+```
+などとしてプロジェクトのディレクトリに移動してください
+```
+rails server
+```
+でサーバーを立ち上げておいてください
 
-* Configuration
 
-* Database creation
+# postmanによる動作テストのお願い
 
-* Database initialization
+apiを使用する前にpostmanで動作確認をお願いします。
 
-* How to run the test suite
+- 「Create Article」のテスト
+新たに項目を追加することができるかのテストです
 
-* Services (job queues, cache servers, search engines, etc.)
+エンドポイントはこちらを設定してください
+```
+localhost:3000/api/articles
+```
+ここのリクエストボディに`POST`リクエストで
+```json
+{"article":{"title":"How to train your dragon", "body":"Very carefully."}}
+```
+をbodyに添付して送信します
+そうすると
+```json
+{
+    "article": {
+        "id": 7(ここは場合によって変わります),
+        "slug": "how-to-train-your-dragon",
+        "title": "How to train your dragon",
+        "body": "Very carefully.",
+        "created_at": "2023-06-18T04:27:25.866Z",
+        "updated_at": "2023-06-18T04:27:25.866Z"
+    }
+}
+```
+このようなデータが返ってくれば成功です
 
-* Deployment instructions
+- 「Update Articleテスト」
 
-* ...
+updateでのパスパラメータはresponseのslugをそのまま使っています
+よって
+```
+localhost:3000/api/articles/how-to-train-your-dragon
+```
+このようなエンドポイントとなります。
+ここに`PUT`リクエストでbodyに
+```json
+{
+  "article": {
+    "title": "Did you train your dragon?"
+  }
+}
+```
+を記述して送ります。
+レスポンスとして
+```json
+{
+    "article": {
+        "title": "Did you train your dragon?",
+        "id": 7,
+        "slug": "how-to-train-your-dragon",
+        "body": "Very carefully.",
+        "created_at": "2023-06-18T04:27:25.866Z",
+        "updated_at": "2023-06-18T04:53:29.180Z"
+    }
+}
+```
+titleの「How to train your dragon」が「Did you train your dragon?」に変更されていれば成功です。
+
+「get article」
+urlのパスパラメーターと同じarticleを検索して表示出来るかのテストです
+```json
+localhost:3000/api/articles/how-to-train-your-dragon
+```
+エンドポイントはこちらです。ここに`get`リクエストを送ってください
+
+```json
+{
+    "article": {
+        "id": 8,
+        "slug": "how-to-train-your-dragon",
+        "title": "How to train your dragon",
+        "body": "Very carefully.",
+        "created_at": "2023-06-18T04:53:07.652Z",
+        "updated_at": "2023-06-18T04:53:07.652Z"
+    }
+}
+```
+slugが「how-to-train-your-dragon」が取れていれば成功です。
+
+
+
+
