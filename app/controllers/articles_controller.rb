@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def get
-    @article = Article.find_by(slug: params[:id])
+    @article = Article.find_by(slug: params[:slug])
     render json: {"article": @article}
   end
   

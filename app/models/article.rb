@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  before_save :generate_slug, if: :new_record_or_title_changed?
+  before_save :generate_slug, if: :new_record?
 
   private
 
@@ -7,8 +7,8 @@ class Article < ApplicationRecord
     self.slug = self.title.downcase.gsub(" ", "-")
   end
 
-  def new_record_or_title_changed?
-    new_record? || title_changed?
+  def new_record?
+    new_record?
   end
 
   validates :title, presence: true
