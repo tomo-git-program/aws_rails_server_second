@@ -7,7 +7,9 @@ ruby "3.0.5"
 gem "rails", "~> 7.0.5"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+#gem "sqlite3", "~> 1.4"
+
+gem 'mysql2'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -44,4 +46,10 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.6", require: false
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-rbenv-vars', '~> 0.1'
+  gem 'capistrano3-puma'
 end
