@@ -1,3 +1,11 @@
+server "18.178.18.140", user: "ishiyama", roles: %w{app db web}
+
+set :ssh_options, {
+  keys: %w(~/.ssh/aws_rails_server.pem),
+  forward_agent: true,
+  auth_methods: %w(publickey),
+}
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

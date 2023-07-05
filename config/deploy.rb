@@ -3,7 +3,7 @@ lock "~> 3.17.3"
 
 set :application, "aws_rails_server"
 set :repo_url, "git@github.com:tomo-git-program/aws_rails_server_second.git"
-set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_ruby, '3.0.5'
 set :branch, ENV['BRANCH'] || "main"
 
 # Nginxの設定ファイル名と置き場所を修正
