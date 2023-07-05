@@ -53,3 +53,7 @@ group :development do
   gem 'capistrano-rbenv-vars', '~> 0.1'
   gem 'capistrano3-puma'
 end
+
+group :production do
+  gem 'unicorn'
+end

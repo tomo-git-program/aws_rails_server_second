@@ -1,0 +1,29 @@
+current directory: /home/ishiyama/real_world/vendor/bundle/ruby/3.0.0/gems/unicorn-6.1.0/ext/unicorn_http
+/home/ishiyama/.rbenv/versions/3.0.5/bin/ruby -I /home/ishiyama/.rbenv/versions/3.0.5/lib/ruby/3.0.0 -r ./siteconf20230705-32106-ofasar.rb extconf.rb
+checking for rb_hash_clear() in ruby.h... yes
+checking if String#-@ (str_uminus) dedupes... yes
+checking if Hash#[]= (rb_hash_aset) dedupes... yes
+checking for epoll_create1() in sys/epoll.h... yes
+creating Makefile
+
+current directory: /home/ishiyama/real_world/vendor/bundle/ruby/3.0.0/gems/unicorn-6.1.0/ext/unicorn_http
+make DESTDIR\= clean
+
+current directory: /home/ishiyama/real_world/vendor/bundle/ruby/3.0.0/gems/unicorn-6.1.0/ext/unicorn_http
+make DESTDIR\=
+compiling httpdate.c
+compiling unicorn_http.c
+unicorn_http.c:329:18: warning: ‘http_parser_en_main’ defined but not used [-Wunused-const-variable=]
+  329 | static const int http_parser_en_main = 1;
+      |                  ^~~~~~~~~~~~~~~~~~~
+unicorn_http.c:327:18: warning: ‘http_parser_en_ChunkedBody_chunk_chunk_end’ defined but not used [-Wunused-const-variable=]
+  327 | static const int http_parser_en_ChunkedBody_chunk_chunk_end = 105;
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+linking shared-object unicorn_http.so
+
+current directory: /home/ishiyama/real_world/vendor/bundle/ruby/3.0.0/gems/unicorn-6.1.0/ext/unicorn_http
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 unicorn_http.so ./.gem.20230705-32106-o4laj6
