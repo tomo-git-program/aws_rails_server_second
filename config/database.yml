@@ -54,4 +54,4 @@ production:
   database: アプリ名_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  host: aws-rails-server-db.cpwqszpx15bv.ap-northeast-1.rds.amazonaws.com
